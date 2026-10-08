@@ -1,0 +1,18 @@
+name: kaajlagbe
+publish_to: 'none'
+description: KaajLagbe customer-worker marketplace starter.
+version: 0.1.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_core: ^4.2.1
+  firebase_auth: ^6.1.0
+  cloud_firestore: ^6.0.2
+  cupertino_icons: ^1.0.8
+
+flutter:
+  uses-material-design: true

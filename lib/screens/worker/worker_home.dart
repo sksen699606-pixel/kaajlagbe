@@ -1,0 +1,4 @@
+import 'package:flutter/material.dart';
+import '../../services/auth_service.dart';
+class WorkerHome extends StatelessWidget{const WorkerHome({super.key});@override Widget build(BuildContext context)=>Scaffold(appBar:AppBar(title:const Text('Worker Dashboard'),actions:[IconButton(onPressed:AuthService.signOut,icon:const Icon(Icons.logout))]),body:Padding(padding:const EdgeInsets.all(20),child:ListView(children:[const Text('Available jobs',style:TextStyle(fontSize:24,fontWeight:FontWeight.bold)),const SizedBox(height:16),Card(child:ListTile(title:const Text('Bathroom tap repair'),subtitle:const Text('Customer: Amit • 2.5 km • Budget ₹800'),trailing:ElevatedButton(onPressed:(){},child:const Text('Accept')))),Card(child:ListTile(title:const Text('Kitchen pipe leak'),subtitle:const Text('Customer: Priya • 4 km • Budget ₹1,200'),trailing:ElevatedButton(onPressed:(){},child:const Text('Accept'))))]));}
+}
