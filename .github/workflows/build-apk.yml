@@ -22,11 +22,22 @@ jobs:
         with:
           flutter-version: '3.35.0'
           channel: stable
+
       - name: Create Android project
         run: flutter create --platforms=android .
-      
+
+      - name: Check Android files
+        run: |
+          ls -la android
+          test -f android/settings.gradle || test -f android/settings.gradle.kts
+
       - name: Update Kotlin version
-        run: sed -i 's/org.jetbrains.kotlin.android" version "[^"]*"/org.jetbrains.kotlin.android" version "2.2.20"/' android/settings.gradle
+        run: |
+          if [ -f android/settings.gradle ]; then
+            sed -i 's/org.jetbrains.kotlin.android" version "[^"]*"/org.jetbrains.kotlin.android" version "2.2.20"/' android/settings.gradle
+          elif [ -f android/settings.gradle.kts ]; then
+            sed -i 's/id("org.jetbrains.kotlin.android") version "[^"]*"/id("org.jetbrains.kotlin.android") version "2.2.20"/' android/settings.gradle.kts
+          fi
 
       - name: Install dependencies
         run: flutter pub get
